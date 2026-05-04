@@ -70,12 +70,9 @@ function updateHeader(){
         if(contactTop <= 120){
 
             header.classList.add("on-contact");
-            logo.src = "imagem/logo branco.png";
-
         } else{
-
             header.classList.remove("on-contact");
-            logo.src = "imagem/logo3.png";
+        
 
         }
 
