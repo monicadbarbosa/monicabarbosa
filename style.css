@@ -72,12 +72,6 @@ header.on-contact #header-logo{
     content:url("imagem/logo branco.png");
 }
 
-.logo{
-    display:flex;
-    align-items:center;
-    gap:20px;
-}
-
 .logo-icon{
     width:90px;
     height:90px;
@@ -89,14 +83,36 @@ header.on-contact #header-logo{
     align-items:center;
     justify-content:center;
 
-    background:transparent;
+    position:relative;
     overflow:hidden;
 }
 
+/* as duas logos */
 .logo-icon img{
+    position:absolute;
     width:65%;
     height:65%;
     object-fit:contain;
+    transition:.3s;
+}
+
+/* normal aparece */
+.logo-normal{
+    opacity:1;
+}
+
+/* branca escondida */
+.logo-white{
+    opacity:0;
+}
+
+/* no contacto troca */
+header.on-contact .logo-normal{
+    opacity:0;
+}
+
+header.on-contact .logo-white{
+    opacity:1;
 }
 
 .logo h2{
