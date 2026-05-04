@@ -55,33 +55,38 @@ function updateHeader(){
 
     if(!header) return;
 
-    // blur header
+    // blur
     if(window.scrollY > 10){
         header.classList.add("scrolled");
     } else{
         header.classList.remove("scrolled");
     }
 
-    // troca logo no contacto
+    // contacto
     if(contactSection && logo){
 
         const contactTop = contactSection.getBoundingClientRect().top;
 
         if(contactTop <= 120){
 
-    header.classList.add("on-contact");
+            header.classList.add("on-contact");
 
-    console.log("trocar para branco");
-    logo.src = "./imagem/logo branco.png";
+            console.log("trocar para branco");
+            logo.src = "./imagem/logo branco.png";
 
-} else{
+        } else{
 
-    header.classList.remove("on-contact");
+            header.classList.remove("on-contact");
 
-    console.log("trocar para normal");
-    logo.src = "./imagem/logo3.png";
+            console.log("trocar para normal");
+            logo.src = "./imagem/logo3.png";
+
+        }
+
+    }
 
 }
+
 
 /* EVENTOS */
 
