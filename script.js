@@ -69,17 +69,19 @@ function updateHeader(){
 
         if(contactTop <= 120){
 
-            header.classList.add("on-contact");
-        } else{
-            header.classList.remove("on-contact");
-        
+    header.classList.add("on-contact");
 
-        }
+    console.log("trocar para branco");
+    logo.src = "./imagem/logo branco.png";
 
-    }
+} else{
+
+    header.classList.remove("on-contact");
+
+    console.log("trocar para normal");
+    logo.src = "./imagem/logo3.png";
 
 }
-
 
 /* EVENTOS */
 
