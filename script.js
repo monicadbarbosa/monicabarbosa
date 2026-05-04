@@ -61,3 +61,33 @@ function updateHeader(){
 window.addEventListener("scroll", updateHeader);
 
 updateHeader();
+const contactSection = document.querySelector("#contact");
+
+function detectContact(){
+
+    const contactTop = contactSection.getBoundingClientRect().top;
+    const header = document.querySelector("header");
+
+    if(contactTop <= 120){
+        header.classList.add("on-contact");
+    } else{
+        header.classList.remove("on-contact");
+    }
+
+}
+
+window.addEventListener("scroll", () => {
+    updateHeader();
+    detectContact();
+});
+
+updateHeader();
+detectContact();
+
+
+
+
+
+
+
+
