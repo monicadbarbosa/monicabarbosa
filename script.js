@@ -1,40 +1,46 @@
 const floatingElements = document.querySelectorAll(".floating");
+const rows = document.querySelectorAll(".gallery-row");
+
+const header = document.querySelector("header");
+const contactSection = document.querySelector("#contact");
+const logo = document.querySelector("#header-logo");
+
+
+/* BOLAS FLUTUANTES */
 
 document.addEventListener("mousemove", (e) => {
-  
-  const x = e.clientX / window.innerWidth;
-  const y = e.clientY / window.innerHeight;
 
-  floatingElements.forEach((el, index) => {
-    
-    const speed = (index + 1) * 20;
+    const x = e.clientX / window.innerWidth;
+    const y = e.clientY / window.innerHeight;
 
-    const moveX = (x - 0.5) * speed;
-    const moveY = (y - 0.5) * speed;
+    floatingElements.forEach((el, index) => {
 
-    el.style.transform = `translate(${moveX}px, ${moveY}px)`;
-  });
+        const speed = (index + 1) * 20;
+
+        const moveX = (x - 0.5) * speed;
+        const moveY = (y - 0.5) * speed;
+
+        el.style.transform = `translate(${moveX}px, ${moveY}px)`;
+
+    });
+
 });
 
-const rows = document.querySelectorAll(".gallery-row");
+
+/* REVEAL DOS PROJETOS */
 
 function revealRows(){
 
     rows.forEach(row => {
 
         const rect = row.getBoundingClientRect();
-        const screenHeight = window.innerHeight;
 
-        /* dentro da zona visível */
         if(
-            rect.top < screenHeight - 100 &&
+            rect.top < window.innerHeight - 100 &&
             rect.bottom > 100
         ){
             row.classList.add("active");
-        } 
-        
-        /* saiu do ecrã */
-        else{
+        } else{
             row.classList.remove("active");
         }
 
@@ -42,84 +48,53 @@ function revealRows(){
 
 }
 
-window.addEventListener("scroll", revealRows);
 
-revealRows();
-
-const header = document.querySelector("header");
+/* HEADER + CONTACTO */
 
 function updateHeader(){
 
+    if(!header) return;
+
+    // blur header
     if(window.scrollY > 10){
         header.classList.add("scrolled");
     } else{
         header.classList.remove("scrolled");
     }
 
-}
+    // troca logo no contacto
+    if(contactSection && logo){
 
-window.addEventListener("scroll", updateHeader);
+        const contactTop = contactSection.getBoundingClientRect().top;
 
-updateHeader();
-const contactSection = document.querySelector("#contact");
+        if(contactTop <= 120){
 
-function detectContact(){
+            header.classList.add("on-contact");
+            logo.src = "imagem/logo branco.png";
 
-    const contactTop = contactSection.getBoundingClientRect().top;
-    const header = document.querySelector("header");
+        } else{
 
-    if(contactTop <= 120){
-        header.classList.add("on-contact");
-    } else{
-        header.classList.remove("on-contact");
+            header.classList.remove("on-contact");
+            logo.src = "imagem/logo3.png";
+
+        }
+
     }
 
 }
+
+
+/* EVENTOS */
 
 window.addEventListener("scroll", () => {
+
+    revealRows();
     updateHeader();
-    detectContact();
+
 });
 
+
+/* LOAD */
+
+revealRows();
 updateHeader();
-detectContact();
-
-const header = document.querySelector("header");
-const contactSection = document.querySelector("#contact");
-const logo = document.querySelector("#header-logo");
-
-function updateHeader(){
-
-    const contactTop = contactSection.getBoundingClientRect().top;
-
-    // efeito blur
-    if(window.scrollY > 10){
-        header.classList.add("scrolled");
-    } else{
-        header.classList.remove("scrolled");
-    }
-
-    // troca de logo no contacto
-    if(contactTop <= 120){
-
-        header.classList.add("on-contact");
-        logo.src = "imagem/logo branco.png";
-
-    } else{
-
-        header.classList.remove("on-contact");
-        logo.src = "imagem/logo3.png";
-
-    }
-
-}
-
-window.addEventListener("scroll", updateHeader);
-
-updateHeader();
-
-
-
-
-
-
