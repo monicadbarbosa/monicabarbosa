@@ -46,6 +46,22 @@ header.scrolled{
     backdrop-filter:blur(20px);
     -webkit-backdrop-filter:blur(20px);
 }
+
+/* quando está sobre a secção contacto */
+header.on-contact .logo h2,
+header.on-contact .logo small{
+    color:white;
+}
+
+header.on-contact .logo-icon{
+    border-color:white;
+}
+
+header.on-contact .menu-btn{
+    background:white;
+    color:#d9002f;
+}
+
 .logo{
     display:flex;
     align-items:center;
