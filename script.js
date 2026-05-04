@@ -3,7 +3,6 @@ const rows = document.querySelectorAll(".gallery-row");
 
 const header = document.querySelector("header");
 const contactSection = document.querySelector("#contact");
-const logo = document.querySelector("#header-logo");
 
 
 /* BOLAS FLUTUANTES */
@@ -20,18 +19,19 @@ document.addEventListener("mousemove", (e) => {
         const moveX = (x - 0.5) * speed;
         const moveY = (y - 0.5) * speed;
 
-        el.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        el.style.transform =
+            `translate(${moveX}px, ${moveY}px)`;
 
     });
 
 });
 
 
-/* REVEAL DOS PROJETOS */
+/* ANIMAÇÃO DOS PROJETOS */
 
 function revealRows(){
 
-    rows.forEach(row => {
+    rows.forEach((row) => {
 
         const rect = row.getBoundingClientRect();
 
@@ -49,38 +49,29 @@ function revealRows(){
 }
 
 
-/* HEADER + CONTACTO */
+/* HEADER */
 
 function updateHeader(){
 
     if(!header) return;
 
-    // blur
+    /* efeito glass/scroll */
     if(window.scrollY > 10){
         header.classList.add("scrolled");
     } else{
         header.classList.remove("scrolled");
     }
 
-    // contacto
-    if(contactSection && logo){
+    /* detectar secção contacto */
+    if(contactSection){
 
-        const contactTop = contactSection.getBoundingClientRect().top;
+        const contactTop =
+            contactSection.getBoundingClientRect().top;
 
         if(contactTop <= 120){
-
             header.classList.add("on-contact");
-
-            console.log("trocar para branco");
-            logo.src = "./imagem/logo branco.png";
-
         } else{
-
             header.classList.remove("on-contact");
-
-            console.log("trocar para normal");
-            logo.src = "./imagem/logo3.png";
-
         }
 
     }
@@ -88,7 +79,7 @@ function updateHeader(){
 }
 
 
-/* EVENTOS */
+/* SCROLL */
 
 window.addEventListener("scroll", () => {
 
@@ -100,5 +91,9 @@ window.addEventListener("scroll", () => {
 
 /* LOAD */
 
-revealRows();
-updateHeader();
+window.addEventListener("load", () => {
+
+    revealRows();
+    updateHeader();
+
+});
