@@ -45,3 +45,19 @@ function revealRows(){
 window.addEventListener("scroll", revealRows);
 
 revealRows();
+
+const header = document.querySelector("header");
+
+function updateHeader(){
+
+    if(window.scrollY > 10){
+        header.classList.add("scrolled");
+    } else{
+        header.classList.remove("scrolled");
+    }
+
+}
+
+window.addEventListener("scroll", updateHeader);
+
+updateHeader();
