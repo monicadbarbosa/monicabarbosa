@@ -473,6 +473,12 @@ h1{
     font-weight:700;
 }
 
+.socials a img{
+    width:35px;
+    height:35px;
+    object-fit:contain;
+}
+
 .brand-footer{
     display:flex;
     align-items:center;
