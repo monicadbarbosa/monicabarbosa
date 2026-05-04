@@ -84,7 +84,39 @@ window.addEventListener("scroll", () => {
 updateHeader();
 detectContact();
 
+const header = document.querySelector("header");
+const contactSection = document.querySelector("#contact");
+const logo = document.querySelector("#header-logo");
 
+function updateHeader(){
+
+    const contactTop = contactSection.getBoundingClientRect().top;
+
+    // efeito blur
+    if(window.scrollY > 10){
+        header.classList.add("scrolled");
+    } else{
+        header.classList.remove("scrolled");
+    }
+
+    // troca de logo no contacto
+    if(contactTop <= 120){
+
+        header.classList.add("on-contact");
+        logo.src = "imagem/logo branco.png";
+
+    } else{
+
+        header.classList.remove("on-contact");
+        logo.src = "imagem/logo3.png";
+
+    }
+
+}
+
+window.addEventListener("scroll", updateHeader);
+
+updateHeader();
 
 
 
