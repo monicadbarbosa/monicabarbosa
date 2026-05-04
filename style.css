@@ -28,14 +28,23 @@ header{
 
     padding:20px 50px;
 
+    z-index:999;
+    transition:.3s;
+}
+
+/* estado inicial */
+header.glass{
     background:rgba(255,255,255,.15);
     backdrop-filter:blur(15px);
     -webkit-backdrop-filter:blur(15px);
-
     border-bottom:1px solid rgba(255,255,255,.2);
+}
 
-    z-index:999;
-    transition:.3s;
+/* quando faz scroll */
+header.scrolled{
+    background:rgba(255,255,255,.25);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
 }
 .logo{
     display:flex;
