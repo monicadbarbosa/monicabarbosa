@@ -62,6 +62,16 @@ header.on-contact .menu-btn{
     color:#d9002f;
 }
 
+/* logo normal */
+#header-logo{
+    transition:.3s;
+}
+
+/* quando chega ao contacto */
+header.on-contact #header-logo{
+    content:url("imagem/logo branco.png");
+}
+
 .logo{
     display:flex;
     align-items:center;
