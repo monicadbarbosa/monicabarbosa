@@ -365,17 +365,22 @@ h1{
 
 .carousel-btn {
     margin-top: 20px;
-    padding: 10px 30px;
-    border-radius: 20px;
     border: none;
-    background: #ddd;
-    font-weight: bold;
+    background: none;
+
+    font-family:'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+
+    color: #d9002f;
     text-transform: uppercase;
+    letter-spacing: 1px;
+
     cursor: pointer;
     display: none;
 }
 
-.item.center .btn {
+.item.center .carousel-btn {
     display: inline-block;
 }
 
