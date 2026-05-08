@@ -99,28 +99,54 @@ window.addEventListener("load", () => {
 });
 
 /* --- CARROSSEL 3D --- */
-    function updateCarousel() {
-        if (!carousel) return;
-        items.forEach(item => item.classList.remove('left', 'center', 'right'));
-        const total = items.length;
-        items[(currentIndex + total - 1) % total].classList.add('left');
-        items[currentIndex].classList.add('center');
-        items[(currentIndex + 1) % total].classList.add('right');
-    }
 
-    if (carousel) {
-        carousel.addEventListener('mousedown', (e) => {
-            isDragging = true; startX = e.pageX;
-            carousel.style.cursor = 'grabbing';
-        });
-        window.addEventListener('mouseup', (e) => {
-            if (!isDragging) return;
-            isDragging = false; carousel.style.cursor = 'grab';
-            const moveX = e.pageX - startX;
-            if (moveX > 80) currentIndex = (currentIndex + items.length - 1) % items.length;
-            else if (moveX < -80) currentIndex = (currentIndex + 1) % items.length;
-            updateCarousel();
-        });
-        carousel.addEventListener('dragstart', (e) => e.preventDefault());
+const carousel = document.querySelector("#carousel");
+const items = document.querySelectorAll("#carousel .item");
+
+let currentIndex = 0;
+let isDragging = false;
+let startX = 0;
+
+function updateCarousel() {
+    if (!carousel) return;
+
+    items.forEach(item =>
+        item.classList.remove("left", "center", "right")
+    );
+
+    const total = items.length;
+
+    items[(currentIndex + total - 1) % total].classList.add("left");
+    items[currentIndex].classList.add("center");
+    items[(currentIndex + 1) % total].classList.add("right");
+}
+
+if (carousel) {
+    carousel.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        startX = e.pageX;
+        carousel.style.cursor = "grabbing";
+    });
+
+    window.addEventListener("mouseup", (e) => {
+        if (!isDragging) return;
+
+        isDragging = false;
+        carousel.style.cursor = "grab";
+
+        const moveX = e.pageX - startX;
+
+        if (moveX > 80)
+            currentIndex = (currentIndex + items.length - 1) % items.length;
+        else if (moveX < -80)
+            currentIndex = (currentIndex + 1) % items.length;
+
         updateCarousel();
-    }
+    });
+
+    carousel.addEventListener("dragstart", (e) =>
+        e.preventDefault()
+    );
+
+    updateCarousel();
+}
