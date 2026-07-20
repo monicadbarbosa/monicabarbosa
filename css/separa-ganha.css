@@ -1,12 +1,28 @@
 /* ======================================================
    RESET & BASE
 ====================================================== */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-img { display: block; max-width: 100%; }
-a { text-decoration: none; color: inherit; }
-button { border: none; background: none; cursor: pointer; font: inherit; }
-body { font-family: 'Inter', sans-serif; background: #F8F8F8; color: #111; overflow-x: hidden; line-height: 1.7; }
+* { margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+  }
+html { scroll-behavior: smooth;
+     }
+img { display: block;
+     max-width: 100%;
+    }
+a { text-decoration: none;
+   color: inherit;
+  }
+button { border: none;
+        background: none;
+        cursor: pointer;
+        font: inherit;
+       }
+body { font-family: 'Inter', sans-serif;
+      background: #F8F8F8;
+      color: #111; overflow-x: hidden;
+      line-height: 1.7;
+     }
 
 /* ======================================================
    CORES & VARIÁVEIS
@@ -20,7 +36,9 @@ body { font-family: 'Inter', sans-serif; background: #F8F8F8; color: #111; overf
     --border: #ECECEC;
 }
 
-::selection { background: var(--primary); color: white; }
+::selection { background: var(--primary);
+             color: white;
+            }
 
 /* ======================================================
    CONTAINER & TÍTULOS
@@ -28,8 +46,16 @@ body { font-family: 'Inter', sans-serif; background: #F8F8F8; color: #111; overf
 section { width: min(1200px, 90%); margin: auto; padding: 140px 0; }
 
 .section-title { margin-bottom: 70px; }
-.section-title span { color: var(--primary); font-weight: 700; letter-spacing: .25em; font-size: .8rem; }
-.section-title h2 { margin-top: 10px; font-size: clamp(2.5rem, 5vw, 5rem); line-height: 1; font-weight: 800; }
+.section-title span { color: var(--primary);
+                     font-weight: 700;
+                     letter-spacing: .25em;
+                     font-size: .8rem;
+                    }
+.section-title h2 { margin-top: 10px;
+                   font-size: clamp(2.5rem, 5vw, 5rem);
+                   line-height: 1;
+                   font-weight: 800;
+                  }
 
 /* ======================================================
    HERO (3 COLUNAS - FLEXBOX)
@@ -39,18 +65,17 @@ section { width: min(1200px, 90%); margin: auto; padding: 140px 0; }
     min-height: 80vh;
     background: #fff7f8;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: center; /* Alinha verticalmente ao centro */
+    justify-content: space-between; /* Espalha as colunas */
     padding: 80px 6%;
-    gap: 40px;
+    gap: 20px; /* Adiciona um espaço entre as colunas */
     box-sizing: border-box;
 }
 
 
 /* TEXTO */
 .project-content {
-    width: 35%;
-    flex-shrink: 0;
+    width: 30%;
 }
 
 .project-content h1 {
@@ -62,8 +87,8 @@ section { width: min(1200px, 90%); margin: auto; padding: 140px 0; }
 /* TELEMÓVEL */
 .phone-area {
     width: 30%;
-    display: flex;
-    justify-content: center;
+   display: flex;
+   justify-content: center;
 }
 
 .phone-area img {
@@ -74,14 +99,42 @@ section { width: min(1200px, 90%); margin: auto; padding: 140px 0; }
 
 
 /* BOTÃO */
-.btn { display: inline-flex; align-items: center; gap: 15px; background: #df1738; color: white; padding: 14px 28px; border-radius: 30px; font-size: 14px; font-weight: 600; }
-.btn span { background: white; color: #df1738; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; }
+.btn { display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      background: #df1738;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+     }
+.btn span { background: white;
+           color: #df1738;
+           border-radius: 50%;
+           width: 24px;
+           height: 24px;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+          }
 
 /* ESPAÇAMENTO PARA INFO */
-.project-info { display: flex; flex-direction: column; gap: 20px; }
+.project-info {width: 25%;
+               display: flex;
+               flex-direction: column;
+               gap: 30px;
+              }
 
 /* RESPONSIVO CORRIGIDO */
 @media(max-width: 1024px) {
-    .project-hero { flex-direction: column; text-align: center; gap: 50px; }
-    .project-content, .phone-area, .project-info { width: 100%; align-items: center; display: flex; flex-direction: column; }
+    .project-hero { flex-direction: column;
+                   text-align: center;
+                   gap: 50px;
+                  }
+    .project-content, .phone-area, .project-info { width: 100%;
+                                                  align-items: center;
+                                                  display: flex;
+                                                  flex-direction: column;
+                                                 }
 }
