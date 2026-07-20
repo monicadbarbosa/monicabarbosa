@@ -73,21 +73,15 @@ section { width: min(1200px, 90%); margin: auto; padding: 140px 0; }
 }
 
 
-/* INFORMAÇÃO */
-.project-info {
-    width: 25%;
-}
-
 /* BOTÃO */
 .btn { display: inline-flex; align-items: center; gap: 15px; background: #df1738; color: white; padding: 14px 28px; border-radius: 30px; font-size: 14px; font-weight: 600; }
 .btn span { background: white; color: #df1738; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; }
 
-/* RESPONSIVO */
+/* ESPAÇAMENTO PARA INFO */
+.project-info { display: flex; flex-direction: column; gap: 20px; }
+
+/* RESPONSIVO CORRIGIDO */
 @media(max-width: 1024px) {
     .project-hero { flex-direction: column; text-align: center; gap: 50px; }
     .project-content, .phone-area, .project-info { width: 100%; align-items: center; display: flex; flex-direction: column; }
-}
-    .hero { grid-template-columns: 1fr; text-align: center; padding-top: 150px; min-height: auto; }
-    .hero-text, .hero-details { align-items: center; }
-    .hero-details { margin-top: 40px; }
 }
