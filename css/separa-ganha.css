@@ -1,417 +1,81 @@
 /* ======================================================
-   RESET
+   RESET & BASE
 ====================================================== */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-img{
-    display:block;
-    max-width:100%;
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-button{
-    border:none;
-    background:none;
-    cursor:pointer;
-    font:inherit;
-}
-
-body{
-
-    font-family:'Inter',sans-serif;
-
-    background:#F8F8F8;
-
-    color:#111;
-
-    overflow-x:hidden;
-
-    line-height:1.7;
-
-}
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+button { border: none; background: none; cursor: pointer; font: inherit; }
+body { font-family: 'Inter', sans-serif; background: #F8F8F8; color: #111; overflow-x: hidden; line-height: 1.7; }
 
 /* ======================================================
-   CORES
+   CORES & VARIÁVEIS
 ====================================================== */
-
-:root{
-
-    --primary:#E3062D;
-
-    --primary-dark:#B50022;
-
-    --text:#111111;
-
-    --text-light:#666666;
-
-    --white:#ffffff;
-
-    --background:#F8F8F8;
-
-    --border:#ECECEC;
-
-    --radius:24px;
-
-    --shadow:
-        0 15px 40px rgba(0,0,0,.08);
-
+:root {
+    --primary: #E3062D;
+    --primary-dark: #B50022;
+    --text: #111111;
+    --text-light: #666666;
+    --white: #ffffff;
+    --border: #ECECEC;
 }
 
+::selection { background: var(--primary); color: white; }
 
 /* ======================================================
-   SELEÇÃO
+   CONTAINER & TÍTULOS
 ====================================================== */
+section { width: min(1200px, 90%); margin: auto; padding: 140px 0; }
 
-::selection{
-
-    background:var(--primary);
-
-    color:white;
-
-}
-
+.section-title { margin-bottom: 70px; }
+.section-title span { color: var(--primary); font-weight: 700; letter-spacing: .25em; font-size: .8rem; }
+.section-title h2 { margin-top: 10px; font-size: clamp(2.5rem, 5vw, 5rem); line-height: 1; font-weight: 800; }
 
 /* ======================================================
-   SCROLLBAR
+   HERO (3 COLUNAS)
 ====================================================== */
-
-::-webkit-scrollbar{
-
-    width:10px;
-
+.hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.4fr;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    overflow: hidden;
 }
 
-::-webkit-scrollbar-track{
-
-    background:#eee;
-
+/* Círculo decorativo */
+.hero::before {
+    content: ""; position: absolute; width: 650px; height: 650px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(227,6,45,.12), transparent 70%);
+    right: -250px; top: -150px; z-index: -1;
 }
 
-::-webkit-scrollbar-thumb{
+/* Coluna 1: Texto */
+.hero-text .category { color: var(--primary); letter-spacing: .25em; font-size: .85rem; font-weight: 700; margin-bottom: 30px; }
+.hero-text h1 { font-size: clamp(3rem, 7vw, 6rem); line-height: .92; font-weight: 900; letter-spacing: -2px; margin-bottom: 35px; }
 
-    background:var(--primary);
+/* Coluna 2: Imagem */
+.hero-image img { width: 100%; max-width: 480px; filter: drop-shadow(0 40px 70px rgba(0,0,0,.15)); }
 
-    border-radius:20px;
-
-}
-
-
-
-
-/* ======================================================
-   CONTAINER
-====================================================== */
-
-section{
-
-    width:min(1200px,90%);
-
-    margin:auto;
-
-}
-
-
-/* ======================================================
-   TÍTULOS
-====================================================== */
-
-.section-title{
-
-    margin-bottom:70px;
-
-}
-
-.section-title span{
-
-    color:var(--primary);
-
-    font-weight:700;
-
-    letter-spacing:.25em;
-
-    font-size:.8rem;
-
-}
-
-.section-title h2{
-
-    margin-top:10px;
-
-    font-size:clamp(2.5rem,5vw,5rem);
-
-    line-height:1;
-
-    font-weight:800;
-
-}
-
-
-/* ======================================================
-   PARÁGRAFOS
-====================================================== */
-
-p{
-
-    color:var(--text-light);
-
-    font-size:1.1rem;
-
-}
-
+/* Coluna 3: Detalhes Laterais */
+.hero-details { display: flex; flex-direction: column; gap: 35px; }
+.detail-item { display: flex; align-items: flex-start; gap: 15px; }
+.detail-item img { width: 22px; margin-top: 3px; opacity: 0.8; }
+.detail-item h4 { font-size: 0.7rem; color: var(--primary); letter-spacing: 0.15em; font-weight: 700; margin-bottom: 4px; }
+.detail-item p { font-size: 0.95rem; font-weight: 600; color: var(--text); line-height: 1.3; }
 
 /* ======================================================
    BOTÕES
 ====================================================== */
-
-.buttons{
-
-    display:flex;
-
-    gap:20px;
-
-    margin-top:40px;
-
-}
-
-.primary{
-
-    padding:18px 35px;
-
-    background:var(--primary);
-
-    color:white;
-
-    border-radius:50px;
-
-    transition:.3s;
-
-}
-
-.primary:hover{
-
-    transform:translateY(-4px);
-
-    box-shadow:0 15px 30px rgba(227,6,45,.25);
-
-}
-
-.secondary{
-
-    padding:18px 35px;
-
-    border:1px solid #ddd;
-
-    border-radius:50px;
-
-    transition:.3s;
-
-}
-
-.secondary:hover{
-
-    background:white;
-
-}
-
+.primary { padding: 18px 35px; background: var(--primary); color: white; border-radius: 50px; transition: .3s; display: inline-block; }
+.primary:hover { transform: translateY(-4px); box-shadow: 0 15px 30px rgba(227,6,45,.25); }
 
 /* ======================================================
-   ESPAÇAMENTO
+   RESPONSIVIDADE
 ====================================================== */
-
-section{
-
-    padding:140px 0;
-
-}
-
-/* ======================================================
-   HERO
-====================================================== */
-
-.hero{
-
-    min-height:100vh;
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    align-items:center;
-
-    gap:80px;
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-
-/* círculo decorativo */
-
-.hero::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:650px;
-
-    height:650px;
-
-    border-radius:50%;
-
-    background:radial-gradient(circle,
-            rgba(227,6,45,.12),
-            transparent 70%);
-
-    right:-250px;
-
-    top:-150px;
-
-    z-index:-1;
-
-}
-
-
-/* texto */
-
-.hero-text{
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-}
-
-.category{
-
-    display:inline-block;
-
-    margin-bottom:30px;
-
-    color:var(--primary);
-
-    letter-spacing:.25em;
-
-    font-size:.85rem;
-
-    font-weight:700;
-
-}
-
-.hero h1{
-
-    font-size:clamp(4rem,9vw,8rem);
-
-    line-height:.92;
-
-    font-weight:900;
-
-    letter-spacing:-4px;
-
-    margin-bottom:35px;
-
-}
-
-.hero p{
-
-    max-width:520px;
-
-    font-size:1.15rem;
-
-    color:var(--text-light);
-
-}
-
-
-/* imagem */
-
-.hero-image{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    position:relative;
-
-}
-
-.hero-image img{
-
-    width:100%;
-
-    max-width:480px;
-
-    filter:drop-shadow(0 40px 70px rgba(0,0,0,.15));
-
-    transition:.5s;
-
-}
-
-.hero-image img:hover{
-
-    transform:translateY(-10px) rotate(-2deg);
-
-}
-
-
-/* seta */
-
-.scroll{
-
-    position:absolute;
-
-    bottom:40px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    gap:12px;
-
-    color:#999;
-
-    font-size:.8rem;
-
-    letter-spacing:.3em;
-
-    text-transform:uppercase;
-
-}
-
-.scroll::after{
-
-    content:"";
-
-    width:2px;
-
-    height:70px;
-
-    background:#ddd;
-
+@media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; text-align: center; padding-top: 150px; min-height: auto; }
+    .hero-text, .hero-details { align-items: center; }
+    .hero-details { margin-top: 40px; }
 }
