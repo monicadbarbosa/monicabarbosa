@@ -64,18 +64,17 @@ section { width: min(1200px, 90%); margin: auto; padding: 140px 0; }
     width: 100%;
     min-height: 80vh;
     background: #fff7f8;
-    display: flex;
-    align-items: center; /* Alinha verticalmente ao centro */
-    justify-content: space-between; /* Espalha as colunas */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
     padding: 80px 6%;
-    gap: 20px; /* Adiciona um espaço entre as colunas */
-    box-sizing: border-box;
+    gap: 40px;
 }
 
 
-/* TEXTO */
+/* TEXTO — esquerda */
 .project-content {
-    width: 30%;
+    width: 100%;
 }
 
 .project-content h1 {
@@ -83,12 +82,17 @@ section { width: min(1200px, 90%); margin: auto; padding: 140px 0; }
     line-height: 0.85;
 }
 
+.project-content p {
+    margin: 25px 0;
+    max-width: 400px;
+}
 
-/* TELEMÓVEL */
+/* IMAGEM — centro */
 .phone-area {
-    width: 30%;
+    width: 100%;
    display: flex;
    justify-content: center;
+   align-items: center;
 }
 
 .phone-area img {
@@ -98,43 +102,12 @@ section { width: min(1200px, 90%); margin: auto; padding: 140px 0; }
 }
 
 
-/* BOTÃO */
-.btn { display: inline-flex;
-      align-items: center;
-      gap: 15px;
-      background: #df1738;
-      color: white;
-      padding: 14px 28px;
-      border-radius: 30px;
-      font-size: 14px;
-      font-weight: 600;
-     }
-.btn span { background: white;
-           color: #df1738;
-           border-radius: 50%;
-           width: 24px;
-           height: 24px;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-          }
-
-/* ESPAÇAMENTO PARA INFO */
-.project-info {width: 25%;
+/* INFORMAÇÃO — direita */
+.project-info {width: 100%;
                display: flex;
                flex-direction: column;
                gap: 30px;
               }
 
-/* RESPONSIVO CORRIGIDO */
-@media(max-width: 1024px) {
-    .project-hero { flex-direction: column;
-                   text-align: center;
-                   gap: 50px;
-                  }
-    .project-content, .phone-area, .project-info { width: 100%;
-                                                  align-items: center;
-                                                  display: flex;
-                                                  flex-direction: column;
-                                                 }
+
 }
